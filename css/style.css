@@ -44,19 +44,10 @@ header h1{
 	font-weight: 400;
 	font-family: "Montserrat",sans-serif;
 	text-transform: uppercase;
-	float: right;
 	margin-left: 50px;
 }
 
 
-a{
-	color: white;
-	text-decoration: none;
-}
-a:hover, .selected{
-	color: #EE2F1B;
-
-}
 .top_header{
 	background-color: #ECECEC;
 	
@@ -141,28 +132,6 @@ a:hover, .selected{
 /*******************
 *=span4
 *******************/
-.span4{
-     margin-top: 25px;
-}
-.grid_3{
-	background-color: aqua;
-	height: 231px;
-	margin-top: 10px;
-}
-.grid_3:hover{
-	background-color: #EE2F1B;
-}
-.grid_6{
-	background-color: #EE2F1B;
-	height: 231px;
-	margin:10px;
-}
-.first{
-	margin-left: 0px;
-}
-.last{
-	margin-right: 0px;
-}
 
 /*******************
 *=footer
@@ -250,11 +219,19 @@ tr {
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
  
-tr:hover td {
+/* tr:hover td {
   background:#4E5066;
   color:#FFFFFF;
   border-top: 1px solid #22262e;
-}
+} */
+
+.cell:hover {
+    background:#4E5066;
+    color:#FFFFFF;
+    border-top: 1px solid #22262e;
+  }
+
+
  
 tr:first-child {
   border-top:none;
@@ -268,9 +245,9 @@ tr:nth-child(odd) td {
   background:#EBEBEB;
 }
  
-tr:nth-child(odd):hover td {
+/* tr:nth-child(odd):hover td {
   background:#4E5066;
-}
+} */
 
 tr:last-child td:first-child {
   border-bottom-left-radius:3px;
