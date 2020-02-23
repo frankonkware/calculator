@@ -203,6 +203,7 @@ th {
 
 th:first-child {
   border-top-left-radius:3px;
+  height: 50px;
 }
  
 th:last-child {
