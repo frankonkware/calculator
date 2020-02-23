@@ -74,14 +74,15 @@
                 numbers.push(number_object);
 
 
-                var i, item ;
+                var i, item;
                 var equation = "";
+                
                 for (i = 0; i < numbers.length; i++) {
                     for (item in numbers[i]) {
-                        equation = equation + numbers[i][item] ;
+                        equation = equation + numbers[i][item];
                         console.log(numbers[i][item]);
                     }
-                   
+
                 }
                 console.log(equation);
                 console.log(eval(equation));
@@ -93,7 +94,7 @@
 
 </head>
 
-<body >
+<body>
     <header>
         <div id="links_container"> </div>
     </header>
