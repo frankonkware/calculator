@@ -68,7 +68,24 @@
 
             }
             //calculate result from the array "numbers"
-            else if(clicked == "equals"){
+            else if (clicked == "equals") {
+                var number_object = { num: document.getElementById("result").innerHTML, operator: "" };
+                console.log(numbers);
+                numbers.push(number_object);
+
+
+                var i, item ;
+                var equation = "";
+                for (i = 0; i < numbers.length; i++) {
+                    for (item in numbers[i]) {
+                        equation = equation + numbers[i][item] ;
+                        console.log(numbers[i][item]);
+                    }
+                   
+                }
+                console.log(equation);
+                console.log(eval(equation));
+                document.getElementById("result").innerHTML = eval(equation);
 
             }
         }
@@ -76,7 +93,7 @@
 
 </head>
 
-<body bgcolor="#F3F3F3">
+<body >
     <header>
         <div id="links_container"> </div>
     </header>
@@ -121,7 +138,8 @@
                         <td class="text-center cell" id="" onClick="myFunction(this.id)"> </td>
                         <td class="text-center cell" id="0" onClick="myFunction(this.id)"> 0 </td>
                         <td class="text-center cell" id="point"> </td>
-                        <td class="text-center cell" id="equals" onClick="myFunction(this.id)" style="background-color:greenyellow;"> = </td>
+                        <td class="text-center cell" id="equals" onClick="myFunction(this.id)"
+                            style="background-color:greenyellow;"> = </td>
                     </tr>
                 </tbody>
             </table>
