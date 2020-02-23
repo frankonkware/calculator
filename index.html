@@ -6,12 +6,71 @@
     <title>JS Calc</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
+
+        var numbers = []; //initialize array with numbers 
+        console.log(numbers);
         function myFunction(clicked_item) {
 
             console.log(clicked_item);
-        //     var previous = document.getElementById("result").innerHTML;
-        //     previous.concat()
-        //   document.getElementById("result").innerHTML = "1";
+            var display = 0;
+            var clicked = clicked_item; //get clicked item
+
+            //clear display  and numbers array if the clear button is clicked
+            if (clicked == "clear") {
+                document.getElementById("result").innerHTML = "";
+                numbers = [];
+            }
+            //show number on display if any number is clicked
+            else if (clicked == "0" || clicked == "1" || clicked == "2" || clicked == "3" || clicked == "4" || clicked == "5" || clicked == "6" || clicked == "7" || clicked == "8" || clicked == "9") {
+                display = document.getElementById("result").innerHTML.concat(clicked);
+                document.getElementById("result").innerHTML = display;
+            }
+
+            // store the number and operator in an array of objects and reset display when operator is clicked
+            else if (clicked == "plus" || clicked == "multiply" || clicked == "subtract" || clicked == "divide") {
+
+                switch (clicked) {
+                    case "plus":
+                        var number_object = { num: document.getElementById("result").innerHTML, operator: "+" };
+                        console.log(number_object);
+                        numbers.push(number_object);
+                        document.getElementById("result").innerHTML = "";
+                        console.log(JSON.stringify(numbers));
+                        break;
+
+                    case "subtract":
+                        var number_object = { num: document.getElementById("result").innerHTML, operator: "-" };
+                        console.log(number_object);
+                        numbers.push(number_object);
+                        document.getElementById("result").innerHTML = "";
+                        console.log(JSON.stringify(numbers));
+                        break;
+
+                    case "divide":
+                        var number_object = { num: document.getElementById("result").innerHTML, operator: "/" };
+                        console.log(number_object);
+                        numbers.push(number_object);
+                        document.getElementById("result").innerHTML = "";
+                        console.log(JSON.stringify(numbers));
+                        break;
+
+                    case "multiply":
+                        var number_object = { num: document.getElementById("result").innerHTML, operator: "*" };
+                        console.log(number_object);
+                        numbers.push(number_object);
+                        document.getElementById("result").innerHTML = "";
+                        console.log(JSON.stringify(numbers));
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+            //calculate result from the array "numbers"
+            else if(clicked == "equals"){
+
+            }
         }
     </script>
 
@@ -24,51 +83,52 @@
     <div class="container_12">
         <div class="grid_12">
             <div class="table-title">
-                <h3 onClick="myFunction()" >JsCalc </h3>
+                <h3 onClick="myFunction()" onClick="myFunction(this.id)">JsCalc </h3>
             </div>
             <table class="table-fill">
                 <thead>
                     <tr>
-                        <th class="text-right" colspan="4" id="result">Result</th>
+                        <th class="text-right" colspan="4" id="result"></th>
                     </tr>
                 </thead>
                 <tbody class="table-hover">
                     <tr>
-                        <td class="text-center cell" id="clear" >C</td>
-                        <td class="text-center cell" id="blank" ></td>
-                        <td class="text-center cell" id="backspace" >DEL</td>
-                        <td class="text-center cell" id="plus" >÷</td>
+                        <td class="text-center cell" id="clear" onClick="myFunction(this.id)">C</td>
+                        <td class="text-center cell" id="blank"></td>
+                        <td class="text-center cell" id="backspace"></td>
+                        <td class="text-center cell" id="divide" onClick="myFunction(this.id)">÷</td>
                     </tr>
                     <tr>
-                        <td class="text-center cell" id="seven" > 7 </td>
-                        <td class="text-center cell" id="eight" > 8 </td>
-                        <td class="text-center cell" id="nine" > 9 </td>
-                        <td class="text-center cell" id="multiply" > X </td>
+                        <td class="text-center cell" id="7" onClick="myFunction(this.id)"> 7 </td>
+                        <td class="text-center cell" id="8" onClick="myFunction(this.id)"> 8 </td>
+                        <td class="text-center cell" id="9" onClick="myFunction(this.id)"> 9 </td>
+                        <td class="text-center cell" id="multiply" onClick="myFunction(this.id)"> x </td>
                     </tr>
                     <tr>
-                        <td class="text-center cell" id="four" > 4 </td>
-                        <td class="text-center cell" id="five" > 5 </td>
-                        <td class="text-center cell" id="six" > 6 </td>
-                        <td class="text-center cell" id="subtract" > - </td>
+                        <td class="text-center cell" id="4" onClick="myFunction(this.id)"> 4 </td>
+                        <td class="text-center cell" id="5" onClick="myFunction(this.id)"> 5 </td>
+                        <td class="text-center cell" id="6" onClick="myFunction(this.id)"> 6 </td>
+                        <td class="text-center cell" id="subtract" onClick="myFunction(this.id)"> - </td>
                     </tr>
                     <tr>
-                        <td class="text-center cell" id="1" onClick="myFunction(this.id)" > 1 </td>
-                        <td class="text-center cell" id="two" > 2 </td>
-                        <td class="text-center cell" id="three" > 3 </td>
-                        <td class="text-center cell" id="add" > + </td>
+                        <td class="text-center cell" id="1" onClick="myFunction(this.id)" onClick="myFunction(this.id)">
+                            1 </td>
+                        <td class="text-center cell" id="2" onClick="myFunction(this.id)"> 2 </td>
+                        <td class="text-center cell" id="3" onClick="myFunction(this.id)"> 3 </td>
+                        <td class="text-center cell" id="plus" onClick="myFunction(this.id)"> + </td>
                     </tr>
                     <tr>
-                        <td class="text-center cell" id="" >   </td>
-                        <td class="text-center cell" id="zero" > 0 </td>
-                        <td class="text-center cell" id="point" > . </td>
-                        <td class="text-center cell" id="equals" > = </td>
+                        <td class="text-center cell" id="" onClick="myFunction(this.id)"> </td>
+                        <td class="text-center cell" id="0" onClick="myFunction(this.id)"> 0 </td>
+                        <td class="text-center cell" id="point"> </td>
+                        <td class="text-center cell" id="equals" onClick="myFunction(this.id)" style="background-color:greenyellow;"> = </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
     </div>
-    
+
 </body>
 
 </html>
