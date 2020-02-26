@@ -29,7 +29,7 @@
                 document.getElementById("result").innerHTML = "";
                 numbers = [];
             }
-            
+
             //show number on display if any number is clicked
             else if (clicked == "0" || clicked == "1" || clicked == "2" || clicked == "3" || clicked == "4" || clicked == "5" || clicked == "6" || clicked == "7" || clicked == "8" || clicked == "9") {
                 display = document.getElementById("result").innerHTML.concat(clicked);
@@ -40,20 +40,16 @@
             else if (clicked == "plus" || clicked == "multiply" || clicked == "subtract" || clicked == "divide") {
 
                 switch (clicked) {
-                    case "plus":
-                        feed_array("+");
+                    case "plus": feed_array("+");
                         break;
 
-                    case "subtract":
-                        feed_array("-");
+                    case "subtract": feed_array("-");
                         break;
 
-                    case "divide":
-                        feed_array("/");
+                    case "divide": feed_array("/");
                         break;
 
-                    case "multiply":
-                        feed_array("*");
+                    case "multiply": feed_array("*");
                         break;
 
                     default:
@@ -63,7 +59,7 @@
             }
             //calculate result from the array "numbers"
             else if (clicked == "equals") {
-                
+
                 console.log(numbers);
                 numbers.push(document.getElementById("result").innerHTML);
 
@@ -106,7 +102,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-hover">
-                    <tr >
+                    <tr>
                         <td class="text-center cell" id="clear" onClick="myFunction(this.id)">C</td>
                         <td class="text-center cell" id="blank"></td>
                         <td class="text-center cell" id="backspace"></td>
