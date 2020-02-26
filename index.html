@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="css/style.css">
     <script>
 
-        var numbers = []; //initialize array with numbers 
-        //console.log(numbers);
+        var numbers = []; //initialize array numbers 
+
+        // fn to add items to the array
+        function feed_array(operator) {
+            the_values = document.getElementById("result").innerHTML;
+            the_operator = operator;
+            numbers.push(the_values);
+            numbers.push(the_operator);
+            document.getElementById("result").innerHTML = the_values + the_operator;
+        }
+
         function myFunction(clicked_item) {
 
             console.log(clicked_item);
@@ -20,6 +29,7 @@
                 document.getElementById("result").innerHTML = "";
                 numbers = [];
             }
+            
             //show number on display if any number is clicked
             else if (clicked == "0" || clicked == "1" || clicked == "2" || clicked == "3" || clicked == "4" || clicked == "5" || clicked == "6" || clicked == "7" || clicked == "8" || clicked == "9") {
                 display = document.getElementById("result").innerHTML.concat(clicked);
@@ -31,35 +41,19 @@
 
                 switch (clicked) {
                     case "plus":
-                        var number_object = { num: document.getElementById("result").innerHTML, operator: "+" };
-                        console.log(number_object);
-                        numbers.push(number_object);
-                        document.getElementById("result").innerHTML = "";
-                        console.log(JSON.stringify(numbers));
+                        feed_array("+");
                         break;
 
                     case "subtract":
-                        var number_object = { num: document.getElementById("result").innerHTML, operator: "-" };
-                        console.log(number_object);
-                        numbers.push(number_object);
-                        document.getElementById("result").innerHTML = "";
-                        console.log(JSON.stringify(numbers));
+                        feed_array("-");
                         break;
 
                     case "divide":
-                        var number_object = { num: document.getElementById("result").innerHTML, operator: "/" };
-                        console.log(number_object);
-                        numbers.push(number_object);
-                        document.getElementById("result").innerHTML = "";
-                        console.log(JSON.stringify(numbers));
+                        feed_array("/");
                         break;
 
                     case "multiply":
-                        var number_object = { num: document.getElementById("result").innerHTML, operator: "*" };
-                        console.log(number_object);
-                        numbers.push(number_object);
-                        document.getElementById("result").innerHTML = "";
-                        console.log(JSON.stringify(numbers));
+                        feed_array("*");
                         break;
 
                     default:
@@ -69,23 +63,26 @@
             }
             //calculate result from the array "numbers"
             else if (clicked == "equals") {
-                var number_object = { num: document.getElementById("result").innerHTML, operator: "" };
+                
                 console.log(numbers);
-                numbers.push(number_object);
+                numbers.push(document.getElementById("result").innerHTML);
 
 
                 var i, item;
-                var equation = "";
+                // var equation = "";
 
-                for (i = 0; i < numbers.length; i++) {
-                    for (item in numbers[i]) {
-                        equation = equation + numbers[i][item];
-                        console.log(numbers[i][item]);
-                    }
+                // for (i = 0; i < numbers.length; i++) {
+                //     for (item in numbers[i]) {
+                //         equation = equation + numbers[i][item];
+                //         console.log(numbers[i][item]);
+                //     }
 
-                }
-                
+                // }
+
+                var equation = numbers[numbers.length - 1];
+                console.log(equation);
                 document.getElementById("result").innerHTML = eval(equation);
+
 
             }
         }
@@ -100,7 +97,7 @@
     <div class="container_12">
         <div class="grid_12">
             <div class="table-title">
-                <h3 onClick="myFunction()" ></h3>
+                <h3 onClick="myFunction()"></h3>
             </div>
             <table class="table-fill">
                 <thead>
@@ -109,7 +106,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-hover">
-                    <tr>
+                    <tr >
                         <td class="text-center cell" id="clear" onClick="myFunction(this.id)">C</td>
                         <td class="text-center cell" id="blank"></td>
                         <td class="text-center cell" id="backspace"></td>
