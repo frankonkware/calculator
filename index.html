@@ -31,7 +31,7 @@
             }
 
             //show number on display if any number is clicked
-            else if (clicked == "0" || clicked == "1" || clicked == "2" || clicked == "3" || clicked == "4" || clicked == "5" || clicked == "6" || clicked == "7" || clicked == "8" || clicked == "9") {
+            else if (clicked == "." || clicked == "0" || clicked == "1" || clicked == "2" || clicked == "3" || clicked == "4" || clicked == "5" || clicked == "6" || clicked == "7" || clicked == "8" || clicked == "9") {
                 display = document.getElementById("result").innerHTML.concat(clicked);
                 document.getElementById("result").innerHTML = display;
             }
@@ -77,7 +77,7 @@
 
                 var equation = numbers[numbers.length - 1];
                 console.log(equation);
-                document.getElementById("result").innerHTML = eval(equation);
+                document.getElementById("result").innerHTML = eval(equation).toFixed(1);
 
 
             }
@@ -130,7 +130,7 @@
                     <tr>
                         <td class="text-center cell" id="" onClick="myFunction(this.id)"> </td>
                         <td class="text-center cell" id="0" onClick="myFunction(this.id)"> 0 </td>
-                        <td class="text-center cell" id="point"> </td>
+                        <td class="text-center cell" id="." onClick="myFunction(this.id)"> . </td>
                         <td class="text-center cell" id="equals" onClick="myFunction(this.id)"
                             style="background-color:greenyellow;"> = </td>
                     </tr>
