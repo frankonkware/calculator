@@ -1,2 +1,2 @@
 # calculator
-A calculator made with js
+A calculator made with Javasctipt, HTML and  CSS
